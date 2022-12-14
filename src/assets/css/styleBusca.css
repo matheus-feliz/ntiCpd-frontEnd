@@ -1,0 +1,341 @@
+:root {
+    --light-gray: #EEEEEE;
+    --azul: rgb(0, 0, 170);
+}
+
+.traco-busca {
+    border: 1px solid;
+    width: 70%;
+    position: absolute;
+    margin-left: 270px;
+    margin-top: 85px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+    font-size: 30px;
+    opacity: 0.3;
+    z-index: 3;
+}
+.resultado {
+    font-family: sans-serif;
+    padding: 20px;
+    gap: 0px;
+    z-index: 2;
+    margin-left: 50px;
+    width: 100%;
+    margin-top: 20px;
+    height: 400px;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.resultadoPC {
+    position: absolute;
+    margin-top: 10px;
+    font-family: sans-serif;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0px;
+    z-index: 2;
+    margin-left: 30%;
+    width: 50%;
+}
+
+.resultado p {
+    margin-right: 20px;
+    margin-top: 0px;
+    font-family: sans-serif;
+    font-size: 30px;
+    border-right: 1px solid black;
+    padding-right: 5px;
+    margin-bottom: 0px;
+}
+
+.p {
+    margin-left: 250px;
+    margin-top: 30px;
+    font-family: sans-serif;
+    font-size: 30px;
+    padding-right: 5px;
+    margin-bottom: 0px;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+}
+
+.ajust {
+    margin-left: 20%;
+    z-index: 2;
+    position: absolute;
+    padding: 0px;
+    margin-top: 5%;
+    width: 60%;
+}
+
+.img-button {
+    width: 30px;
+    height: 30px;
+}
+
+.form-busca {
+    position: absolute;
+    margin-left: 70%;
+    margin-top: 30px;
+    font-family: sans-serif;
+    display: flex;
+    font-size: 30px;
+}
+
+.form-busca input {
+    font-family: sans-serif;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+    padding: 15px 20px;
+    width: 70%;
+    outline: none;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+.form-busca input:focus {
+    box-shadow: 0 0 0.5em green;
+    transition: all 300ms ease-in-out;
+}
+
+.form-input-tombo {
+    width: 320px;
+}
+
+.form-busca input::placeholder {
+    font-family: sans-serif;
+}
+
+.button-busca {
+    width: 60px;
+    height: 45px;
+    background-color: green;
+    padding: 0px;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    transition: all 300ms ease-in-out;
+    margin-top: 0px;
+}
+
+.button-verde {
+    width: 45px;
+    height: 40px;
+    background-color: green;
+    padding: 0px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    transition: all 300ms ease-in-out;
+}
+
+.button-azul {
+    width: 45px;
+    height: 40px;
+    background-color: var(--azul);
+    padding-right: 1px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    transition: all 300ms ease-in-out;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.adicionar {
+    width: 500px;
+    height: 60px;
+    background-color: var(--azul);
+    padding: 0px;
+    border-radius: 5px;
+    border: none;
+    transition: all 300ms ease-in-out;
+    margin-left: 150px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    color: white;
+    position: absolute;
+}
+
+.adicionar a {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.button-img1 {
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+}
+
+.adicionar:hover,
+.button-azul:hover {
+    background-color: blue;
+    transition: all 300ms ease-in-out;
+}
+
+.button-busca:hover,
+.button-verde:hover {
+    background-color: rgb(0, 170, 0);
+    transition: all 300ms ease-in-out;
+}
+
+.text-nao-existe {
+    margin-left: 150px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
+@media(min-width:700px) and (max-width:799px) {
+    .form-busca {
+        margin-left: 50%;
+    }
+    .text-center {
+        margin-left: 170px;
+        font-size: 22px;
+    }
+    .resultado {
+        margin-left: 3%;
+        margin-top: 40px;
+        padding: 0;
+    }
+    .resultado p {
+        margin-right: 10px;
+    }
+    .edit {
+        margin-left: 1%;
+    }
+    .cadastra {
+        margin-left: 1%;
+    }
+    .listagem {
+        margin-left: 1%;
+    }
+    .p {
+        margin-top: 50px;
+    }
+    .adicionar {
+        width: 250px;
+        margin-top: 24%;
+        margin-left: 50%;
+    }
+    .traco {
+        width: 70%;
+    }
+}
+
+@media(min-width:900px) and (max-width:998px) {
+    .form-busca {
+        margin-left: 60%;
+    }
+    .text-center {
+        margin-left: 180px;
+        font-size: 25px;
+    }
+    .p {
+        margin-top: 50px;
+    }
+    .resultado {
+        margin-left: 3%;
+        margin-top: 40px;
+        flex: 1 1 150px;
+        padding: 0;
+    }
+    .resultado p {
+        margin-right: 15px;
+    }
+    .edit {
+        width: 25px;
+        height: 20px;
+        margin-left: 2%;
+    }
+    .cadastra {
+        width: 25px;
+        height: 20px;
+        margin-left: 2%;
+    }
+    .listagem {
+        width: 25px;
+        height: 20px;
+        margin-left: 2%;
+    }
+    .adicionar {
+        width: 250px;
+        margin-left: 60%;
+    }
+    .traco {
+        width: 75%;
+    }
+}
+
+@media(min-width:300px) and (max-width:699px) {
+    .form-busca {
+        margin-left: 140%;
+    }
+    .form-busca input {
+        margin-top: 12px;
+        height: 10px;
+    }
+    .form-busca input::placeholder {
+        font-size: 5px;
+    }
+    .text-center {
+        margin-left: 170px;
+        font-size: 18px;
+        width: 150%;
+    }
+    .button {
+        width: 30px;
+        height: 30px;
+        margin-left: 100%;
+        margin-top: -30px;
+    }
+    .resultado {
+        margin-left: 50%;
+        margin-top: 70px;
+        flex: 1 1 150px;
+        padding: 0;
+    }
+    .resultado p {
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    .img-button {
+        width: 20px;
+        height: 19px;
+    }
+    .edit {
+        margin-left: 1%;
+    }
+    .cadastra {
+        margin-left: 1%;
+    }
+    .listagem {
+        margin-left: 1%;
+    }
+    .adicionar {
+        width: 250px;
+        margin-left: 30%;
+    }
+    .traco {
+        width: 130%;
+    }
+}
+
+@media(min-width:800px) and (max-width:899px) {}
