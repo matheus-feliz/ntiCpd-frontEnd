@@ -2,19 +2,17 @@
     <router-view/>
 </template>
 <script>
- //import axios from "@/service/axios"
-
+ import axios from "@/service/axios";
 export default{
-   /* created: async()=>{
-           const response = axios.get('/');
-           console.log("response: ",response)
-    }*/
+   created: async()=>{
+           await axios.get('/');
+    }
 }
 </script>
 
 <style>
 body{
-    background-color: #F0F2F5;
+    background-color: #dbe3ee;
     margin: 0px;
     box-sizing: border-box;
     scroll-behavior: smooth;

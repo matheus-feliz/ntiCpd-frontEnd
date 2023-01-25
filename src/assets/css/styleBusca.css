@@ -29,7 +29,7 @@
     overflow-y: auto;
 }
 
-.resultadoPC {
+.resultado-flex{
     position: absolute;
     margin-top: 10px;
     font-family: sans-serif;
@@ -41,13 +41,15 @@
     z-index: 2;
     margin-left: 30%;
     width: 50%;
+    align-items: center;
+    justify-content: center;
 }
 
 .resultado p {
     margin-right: 20px;
     margin-top: 0px;
     font-family: sans-serif;
-    font-size: 30px;
+    font-size: 25px;
     border-right: 1px solid black;
     padding-right: 5px;
     margin-bottom: 0px;
@@ -96,6 +98,7 @@
     border-radius: 5px 0px 0px 5px;
     padding: 15px 20px;
     width: 70%;
+    height: 45px;
     outline: none;
     margin-right: 0px;
     margin-top: 0px;
@@ -111,6 +114,7 @@
 }
 
 .form-busca input::placeholder {
+    font-size: 20px;
     font-family: sans-serif;
 }
 
@@ -126,22 +130,9 @@
 }
 
 .button-verde {
-    width: 45px;
-    height: 40px;
     background-color: green;
-    padding: 0px;
-    border-radius: 5px;
-    border: none;
-    margin-right: 5px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    transition: all 300ms ease-in-out;
 }
-
-.button-azul {
-    width: 45px;
-    height: 40px;
-    background-color: var(--azul);
+.button-azul,.button-verde{
     padding-right: 1px;
     border-radius: 5px;
     border: none;
@@ -149,6 +140,13 @@
     margin-top: 0px;
     margin-bottom: 0px;
     transition: all 300ms ease-in-out;
+    display: flex;
+    align-items: center;
+    width: 45px;
+    height: 40px;
+}
+.button-azul {
+    background-color: var(--azul);
 }
 
 .tabela {
@@ -164,13 +162,21 @@
     border-radius: 5px;
     border: none;
     transition: all 300ms ease-in-out;
-    margin-left: 150px;
+    margin-left: 30%;
     margin-top: 5px;
     margin-bottom: 40px;
     color: white;
     position: absolute;
 }
-
+.botao{
+    width: 40px;
+    height: 40px;
+    border: 0px;
+    background-color: green;
+    margin-right: 2px;
+    border-radius: 5px;
+    
+}
 .adicionar a {
     font-size: 30px;
     font-family: sans-serif;
@@ -189,7 +195,7 @@
 }
 
 .button-busca:hover,
-.button-verde:hover {
+.button-verde:hover,.botao:hover {
     background-color: rgb(0, 170, 0);
     transition: all 300ms ease-in-out;
 }

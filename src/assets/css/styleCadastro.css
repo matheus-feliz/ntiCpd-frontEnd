@@ -17,10 +17,11 @@
 }
 
 .grid-form {
-    margin-left: 150px;
-    margin-top: 60px;
+    margin-left: 50px;
+    margin-top: 70px;
     width: 85%;
     z-index: 2;
+    position: absolute;
 }
 
 .grid-form .form-contact {
@@ -40,7 +41,11 @@
 
 .form-group {
     flex: 1 1 320px;
-    margin: 10px;
+    margin: 5px;
+}
+.form-group textarea{
+    margin-right: 0px;
+    width: 100%;
 }
 
 .label-form {

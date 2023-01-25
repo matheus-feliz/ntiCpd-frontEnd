@@ -5,18 +5,19 @@
             <div>
                 <form class="form-busca">
                     <input type="text" name="busca" id="busca" placeholder="busca pelo tombo">
-                    <button class="button" type="submit"><img class="img-button"
+                    <button class="button-busca" type="submit"><img class="img-button"
                                 src="../../assets/img/pesquisa.svg"></button>
                 </form>
             </div>
             <div class="traco-busca"></div>
-            <div class="ajust">
+            <div class="ajust" v-if="loading"><div class="resultado-flex" ><loading-busca-vue/></div></div>
+            <div class="ajust" v-if="buscaLoading">
                         <div class="resultado">
                             <div class="box2">
                                 <table class="tabela">
                                     <tbody>
                                             <tr v-for="servico in servicos" :key="servico._id">
-                                                <td>
+                                               <td>
                                                     <p>
                                                         {{servico.tombo}}
                                                     </p>
@@ -33,7 +34,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="box">
-                                                        <button class="button-azul"><img class="button-img"
+                                                        <button class="button-azul" @click="deleteBanco(servico._id)"><img class="button-img"
                                                             src="../../assets/img/delete.png"></button>
                                                         <button class="button-verde"><img class="button-img"
                                                                     src="../../assets/img/escrever.svg" @click="editServico(servico)"></button>
@@ -61,62 +62,42 @@
 </template>
 <script>
 import axios from "@/service/axios"
+import listagem from '@/mixins/listagem';
+import loadingBuscaVue from "../loadingBusca.vue";
 export default{
     name: 'ListagemEquipamentoView',
       data:()=>({
         equipamentos:'',
         servicos:'',
-        pageEquipamentos:[],
+        pages:[],
         limit:5,
         armazenaIndexProximo:0,
         armazenaIndexAnterior:0,
         anteriorDisponivel: false,
         busca:'',
-   }),
+        loading:true,
+        buscaLoading:false
+   }),mixins:[listagem],
+   components:{
+    loadingBuscaVue
+   },
     methods:{
-        dataRetorno(){
-        axios.get(`listagemcomputador/${this.$route.params.id}`).then(({data})=>{
-        this.equipamentos=data.equipamento;
-        this.servicos=data.servicos;
-        this.page();
+        async dataRetorno(){
+        await axios.get(`listagemcomputador/${this.$route.params.id}`).then(({data})=>{
+            this.equipamentos = data.equipamento;
+            this.servicos=data.servicos;
         })
-        },
+        await this.page();
+        }, 
         page(){
             let i=0;
             for(i; i<this.limit; i++){
-                this.pageEquipamentos.push(this.servicos[i]);
+                this.pages.push(this.servicos[i]);
             }
         },
-        proxima(){
-              this.armazenaIndexProximo = this.pageEquipamentos.length;
-            this.pageEquipamentos=[]
-              for(let i=0; i<this.limit; i++){
-                this.pageEquipamentos.push(this.servicos[this.armazenaIndexProximo]);
-                this.armazenaIndexProximo++;
-            }
-        },
-        anterior(){
-            this.pageEquipamentos=[]        
-                this.armazenaIndexAnterior = this.armazenaIndexProximo;
-                for(let i=0; i<this.limit; i++){
-                this.pageEquipamentos.push(this.servicos[this.armazenaIndexAnterior]);
-                this.armazenaIndexAnterior--;
-            }
-            this.armazenaIndexProximo = this.armazenaIndexAnterior;
-        
-            },
-            
-        disponivel(){
-            if(this.armazenaIndexAnterior == 0){
-                console.log('está desabilitado')
-                 return this.anteriorDisponivel= false;
-            }else{
-                console.log('está habilitado')
-                 return this.anteriorDisponivel=true
-            }
-        },
-        async delete(id){
-           await axios.delete(`/cadastrocomputador/delete/${id}`);
+      
+        async deleteBanco(id){
+           await axios.delete(`/listagemcomputador/delete/${id}`);
            await this.dataRetorno();
         },
         cadastroServico(){
@@ -128,28 +109,30 @@ export default{
             this.$router.push({name:"servicodeequipamento"})
         },
           imprimir(servico){
-            this.$store.commit('setEditServicoEquip',servico)
+            this.$store.commit('setImprimirEquipamento',servico)
             this.$router.push({name:"impressaodeequipamento"})
         }
 
     },
-      created(){
-        this.dataRetorno();
+      async created(){
+       await this.dataRetorno();
+        this.loading = false;
+        this.buscaLoading = true;
     },
     watch:{
         limit(){
             let i=0;
              for(i; i<this.limit; i++){
-                this.pageEquipamentos.pop();
+                this.pages.pop();
             }
             this.page();
         },
         busca(novo){
             let i=0;
              for(i; i<this.limit; i++){
-                this.pageEquipamentos.pop();
+                this.pages.pop();
             }
-            this.pageEquipamentos=this.equipamentos.filter(e =>e.tombo.match(novo.toUpperCase()))
+            this.pages=this.servicos.filter(e =>e.tombo.match(novo.toUpperCase()))
         }
     }
 }

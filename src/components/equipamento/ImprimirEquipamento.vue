@@ -3,7 +3,7 @@
     <div class="img-div">
         <img src="../../assets/img/iconLogo.png" class="img">
         <p class="p">Protocolo de saida(GMCR)</p>
-        <p class="espaco">N° de O.S:{{dados.numero}}</p>
+        <p class="espaco">N° de O.S:{{numero}}</p>
 
     </div>
     <div class="traco"></div>
@@ -43,7 +43,7 @@
         <div class="form-group fundo ">
             <p class="informacao">Tipo de serviço:</p>
             <p class="informacao ">
-                {{tipoDeServiço}}
+                {{tipoDeServico}}
             </p>
         </div>
         <div class="form-group ">
@@ -55,13 +55,13 @@
         <div class="form-group ">
             <p class="informacao">data de entrada:</p>
             <p class="informacao">
-                {{dataInicial}}
+                {{dataDeEntrada}}
             </p>
         </div>
         <div class="form-group ">
             <p class="informacao"> data de saida:</p>
             <p class="informacao ">
-                {{dataFinal}}
+                {{dataDeSaida}}
             </p>
         </div>
         <div class="form-espaco">
@@ -82,7 +82,7 @@
             <p class="informacao  responsavel">assinatura:___________________</p>
         </div>
 
-        <button class="button-imprimir" onClick="window.print()">imprimir</button>
+        <button class="button-imprimir" @click="print()">imprimir</button>
     </div>
 </div>
 </template>
@@ -92,18 +92,29 @@ export default{
     name: 'ImprimirEquipamentoView',
     computed:{
         ...mapState({
-        telefone: state => state.editServicoEquipamento.telefone,
-        unidade:state => state.editServicoEquipamento.unidade,
-        responsavel:state => state.editServicoEquipamento.responsavel,
-        tombo: state=> state.editServicoEquipamento.tombo,
-        idServico:state => state.editServicoEquipamento._id,
-        tipoDeServico: state => state.editServicoEquipamento.tipoDeServico,
-        backup: state=>state.editServicoEquipamento.backup,
-        dataDeEntrada: state=>state.editServicoEquipamento.dataDeEntrada,
-        dataDeSaida: state => state.editServicoEquipamento.dataDeSaida,
-        solucao: state => state.editServicoEquipamento.solucao,
-        observacao:state => state.editServicoEquipamento.observacao,
+        telefone: state => state.imprimirEquipamento.telefone,
+        unidade:state => state.imprimirEquipamento.unidade,
+        responsavel:state => state.imprimirEquipamento.responsavel,
+        tombo: state=> state.imprimirEquipamento.tombo,
+        tipoDeServico: state => state.imprimirEquipamento.tipo,
+        backup: state=>state.imprimirEquipamento.backup,
+        dataDeEntrada: state=>state.imprimirEquipamento.dataInicial,
+        dataDeSaida: state => state.imprimirEquipamento.dataFinal,
+        solucao: state => state.imprimirEquipamento.solucao,
+        observacao:state => state.imprimirEquipamento.observacao,
+        numero: state =>  state.imprimirEquipamento.numero
         })
+    },
+    created(){
+        console.log('numeor:', this.numero)
+    },
+    methods:{
+        print(){
+            console.log('aqui')
+            this.$nextTick(() => {
+            window.print();
+               });
+        },
     }
 }
 </script>

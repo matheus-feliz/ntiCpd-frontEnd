@@ -4,14 +4,21 @@
         <div>
                 <div class="ajusteRelogio">
                     <p id="relogio" class="relogio">00:00:00</p>
-                    <router-link to="/" class="nav-link">Sair</router-link>
+                    <p class="nav-link" @click="logout()">Sair</p>
                 </div>
         </div>
     </div>
 </template>
 <script>
+import axios from '@/service/axios';
 export default{
-    name: 'navbarView'
+    name: 'navbarView',
+    methods:{
+        logout(){
+            axios.get('/logout')
+            this.$router.push('/');
+        }
+    }
 }
 </script>
 <style scoped>

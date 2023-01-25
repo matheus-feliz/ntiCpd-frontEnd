@@ -1,18 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '@/views/Login'
-import HomeView from '@/views/Home'
-import CadastroDeUnidade from '@/components/unidade/CadastroUnidade'
-import BuscaDeUnidade from '@/components/unidade/BuscaUnidade'
-import ServicoDeUnidade from '@/components/unidade/ServicoUnidade'
-import ListagemDeUnidade from '@/components/unidade/ListagemUnidade'
-import ImpressaoDaUnidade from '@/components/unidade/ImprimirUnidade'
-import CadastroDeEquipamento from '@/components/equipamento/CadastroEquipamento'
-import BuscaDeEquipamento from '@/components/equipamento/BuscaEquipamento'
-import ServicoDeEquipamento from '@/components/equipamento/ServicoEquipamento'
-import ListagemDeEquipamento from '@/components/equipamento/ListagemEquipamento'
-import ImpressaoDaEquipamento from '@/components/equipamento/ImprimirEquipamento'
-import EsqueceuSenha from '@/components/login/EsqueceuSenha'
-import Relatorio from '@/components/relatorio/Relatorio'
+const LoginView = ()=>import('@/views/Login');
+const HomeView = () => import('@/views/Home');
+const CadastroDeUnidade = () => import('@/components/unidade/CadastroUnidade');
+const BuscaDeUnidade = ()=>import('@/components/unidade/BuscaUnidade');
+const ServicoDeUnidade = ()=> import('@/components/unidade/ServicoUnidade');
+const ListagemDeUnidade = ()=> import('@/components/unidade/ListagemUnidade');
+const ImpressaoDaUnidade = ()=>import('@/components/unidade/ImprimirUnidade');
+const CadastroDeEquipamento = ()=>import('@/components/equipamento/CadastroEquipamento');
+const BuscaDeEquipamento = ()=>import('@/components/equipamento/BuscaEquipamento');
+const ServicoDeEquipamento = ()=>import ('@/components/equipamento/ServicoEquipamento');
+const ListagemDeEquipamento = ()=>import ('@/components/equipamento/ListagemEquipamento');
+const ImpressaoDaEquipamento = ()=>import ('@/components/equipamento/ImprimirEquipamento');
+const EsqueceuSenha =()=> import('@/components/login/EsqueceuSenha');
+const  Relatorio =()=>import('@/components/relatorio/Relatorio');
 const routes = [{
         path: '/',
         name: 'login',
@@ -100,4 +100,4 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes
 })
-export default router
+export default router;

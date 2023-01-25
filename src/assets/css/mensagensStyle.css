@@ -1,0 +1,27 @@
+.cimaMensagen{
+    position: absolute;
+    right: 750px;
+    top: 100px;
+    z-index: 1;
+}
+
+.rightMensagen{
+    position: absolute;
+    z-index: 5;
+    right: 100px;
+    bottom: 150px;
+}
+
+.leftMensagen{
+    position: absolute;
+    z-index: 5;
+    left: 20px;
+    bottom: 150px;
+}
+.tempo{
+    z-index: 6;
+    position: absolute;
+    height: 3px;
+    left: -1px;
+    bottom: 1.5px;
+}
