@@ -152,7 +152,7 @@
     section {
         display: block;
     }
-    .img {
+    .img,.img-login {
         margin: 20% 0px 60% 25%;
         width: 150px;
         height: 150px;
@@ -160,7 +160,7 @@
     .login {
         margin: 0px 0px 0px 25%;
         width: 170px;
-        height: 150px;
+        height: 180px;
     }
     .form-control {
         margin: 0px 15px 10px 15px;
@@ -168,7 +168,7 @@
         height: 20px;
     }
     .cadastro {
-        margin: 65% 0px 0px 25%;
+        margin: 80% 0px 0px 35%;
         width: 170px;
         height: 200px;
     }
@@ -177,7 +177,7 @@
         margin-bottom: 15px;
         font-size: 20px;
     }
-    .buttonLogin {
+    .buttonLogin,.buttonLogin-1 {
         margin: 0px 15px 10px 15px;
         width: 140px;
         height: 20px;
@@ -187,12 +187,12 @@
         width: 140px;
         height: 20px;
     }
-    .traco {
+    .traco,.traco-login {
         width: 140px;
         margin: 0px 15px 10px 15px;
     }
-    .fundo {
-        height: 309%;
+    .fundo-cadastro {
+        height: 161.5%;
     }
     .senha {
         margin-left: 80px;
@@ -201,7 +201,7 @@
 }
 
 @media(min-width:700px) and (max-width:799px) {
-    .img {
+    .img, .img-login {
         margin-left: 30%;
     }
     .login {
@@ -210,7 +210,7 @@
 }
 
 @media(min-width:800px) and (max-width:899px) {
-    .img {
+    .img,.img-login {
         margin-left: 80%;
         width: 180px;
         height: 180px;
@@ -235,7 +235,7 @@
         margin-bottom: 15px;
         font-size: 20px;
     }
-    .buttonLogin {
+    .buttonLogin, .buttonLogin-1 {
         margin: 0px 15px 10px 15px;
         width: 140px;
         height: 20px;
@@ -245,7 +245,7 @@
         width: 140px;
         height: 20px;
     }
-    .traco {
+    .traco, .traco-login{
         width: 140px;
         margin: 0px 15px 10px 15px;
     }

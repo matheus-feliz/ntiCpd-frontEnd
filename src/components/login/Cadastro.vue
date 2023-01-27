@@ -114,7 +114,7 @@ export default {
                         this.emailCadastro = "";
                         this.passwordCadastro = "";
                         this.confirmPassword = "";
-                        this.msgs("criado com sucesso", "alert-success");
+                        this.msgs(["criado com sucesso"], "alert-success");
                     } else {
                         this.msg = response.data;
                         this.tipo = "alert-danger"

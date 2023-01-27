@@ -9,7 +9,7 @@
 }
 
 @media(min-width:300px) and (max-width:699px) {
-    .text-center {
+    .text-center-nti {
         margin-left: 70%;
         font-size: 20px;
     }

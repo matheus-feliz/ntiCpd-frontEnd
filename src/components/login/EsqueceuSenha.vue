@@ -6,7 +6,7 @@
         </div>
         <div class="login-esqueceu">
             <input type="email" :class="`form-control margin ${invalida[0]}`" placeholder="Email" id="email"
-                name="email">
+                name="email" v-model="email">
             <div v-if="exibir">
                 <input type="password" :class="`form-control ${invalida[1]}`" id="password" placeholder="senha"
                     name="password" v-model="senha">
@@ -97,11 +97,34 @@ export default {
             if (erro.length === 0) {
                 this.esqueceuLoading = false;
                 this.loading = true;
-                if (this.id === "") {
-                     const response=await axios.post('/esqueceusenha', this.email)
-                        this.senha = response.data.user;
-                        this.id = response.data.user._id
-                    
+                if ( this.id.length > 0) {
+                    const senha = {
+                        email:this.email,
+                        password: this.senha,
+                        password2: this.senha2
+
+                    }
+                    console.log('senha edit',this.id)
+                    const response = await axios.put(`/registersenha/edit/${this.id}`, senha)
+                    console.log(response)
+                    if (response.data === "sucesso") {
+                        this.msg = ["senha alterada com sucesso"];
+                        this.tipo = "alert-success"
+                        this.loading = false;
+                        this.esqueceuLoading = true;
+                    }
+                    else {
+                        this.loading = false;
+                        this.esqueceuLoading = true;
+                        this.msg = response.data;
+                        this.tipo = "alert-danger"
+                    }
+                }
+                else {
+                    console.log('senha email')
+                     const response=await axios.post('/esqueceusenha', {email:this.email})
+                     this.id = response.data._id;
+                        console.log(response)
                     if (this.id) {
                         this.esqueceuLoading = true;
                         this.loading = false;
@@ -110,24 +133,6 @@ export default {
                         this.esqueceuLoading = true;
                         this.loading = false;
                         this.exibir = false
-                    }
-                }
-                if (this.id) {
-                    const senha = {
-                        password: this.senha,
-                        password2: this.senha2
-
-                    }
-                    const response = await axios.put(`/registersenha/edit/${this.id}`, senha)
-                    if (response.data._id) {
-                        this.msg = "senha alterada com sucesso";
-                        this.tipo = "alert-success"
-                    }
-                    else {
-                        this.loading = false;
-                        this.esqueceuLoading = true;
-                        this.msg = response.data;
-                        this.tipo = "alert-danger"
                     }
                 }
             }
