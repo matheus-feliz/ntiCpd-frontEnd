@@ -144,7 +144,7 @@ export default {
             if (error.length === 0) {
                 this.cadastroLoading = false;
                 this.loading = true;
-                if (typeof this.idEdit !== typeof undefined) {
+                if (typeof this.idEdit !== typeof undefined && this.idEdit !== null && this.idEdit !== "" && this.idEdit !== " ") {
                     const response = await axios.put(`/register/edit/${this.idEdit}`, equipamento)
                     if (response.data._id) {
                         this.$store.commit('setServicoEquipamento', {})

@@ -29,7 +29,9 @@
     z-index: 4;
     display: flex;
     justify-items: center;
+    align-items: self-start;
     padding: 0px;
+    box-shadow: 0 0 0.9em black;
 }
 
 .grid-form {
@@ -44,12 +46,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 }
 
 .form-group-servico {
     flex: 1 1 400px;
-    margin: 10px;
+    margin: 5px;
 }
 
 .form-espaco {
@@ -64,21 +66,26 @@
     font-family: sans-serif;
 }
 
-.form-group-servico .input-form {
+.form-group-servico .input-form, .input-form-data {
     font-family: sans-serif;
     border: none;
     padding: 8px 10px;
-    width: 100%;
+    width: 90%;
     outline: none;
     margin-right: 0px;
     background-color: #F0F2F5;
 }
 
-.form-group-servico textarea {
+.input-form-data{
+    width: 95%;
+}
+
+.form-group-servico > textarea {
     font-family: sans-serif;
     border: none;
     padding: 5px 10px;
-    width: 100%;
+    width: 95%;
+    height: 50%;
     outline: none;
     margin-right: 0px;
     background-color: #F0F2F5;
@@ -102,6 +109,7 @@
     border-radius: 5px;
     border: none;
     margin-left: 90%;
+    margin-top: -100px;
 }
 
 .button-img {
@@ -118,11 +126,12 @@
 .input-form-servico-equipamento{
     font-family: sans-serif;
     border: none;
-    padding: 15px 20px;
+    padding: 8px 10px;
     width: 100%;
     outline: none;
     margin-right: 0px;
     background-color: #F0F2F5;
+
 }
 
 .input-form-servico-equipamento:focus {

@@ -13,6 +13,7 @@ const ListagemDeEquipamento = ()=>import ('@/components/equipamento/ListagemEqui
 const ImpressaoDaEquipamento = ()=>import ('@/components/equipamento/ImprimirEquipamento');
 const EsqueceuSenha =()=> import('@/components/login/EsqueceuSenha');
 const  Relatorio =()=>import('@/components/relatorio/Relatorio');
+const Dashbord =() =>import('@/components/dashbord/dashbord');
 const routes = [{
         path: '/',
         name: 'login',
@@ -27,6 +28,9 @@ const routes = [{
         name: 'home',
         component: HomeView,
         children: [{
+            path:"",
+            component:Dashbord
+        },{
                 path: 'unidade',
                 name: 'unidade',
                 children: [{

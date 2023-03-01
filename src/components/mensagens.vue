@@ -27,7 +27,6 @@ export default {
                     clearInterval(set)
                     this.tempo = 80;
                 }
-                console.log(this.tempo)
             }, 1000)
         }
     },

@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group-servico">
                     <label class="label-form" for="dataDeServico">data de serviços</label>
-                    <input :class="`input-form ${invalida[4]}`" id="dataDeServico" name="dataDeServico" type="date"
+                    <input :class="`input-form-data ${invalida[4]}`" id="dataDeServico" name="dataDeServico" type="date"
                         v-model="dataDeServico">
                 </div>
 
@@ -44,7 +44,7 @@
 
                 <div class="form-group-servico">
                     <label class="label-form" for="observacao">Observação</label>
-                    <textarea class="input-form" id="observacao" name="observacao" cols="30" rows="10"
+                    <textarea id="observacao" name="observacao" cols="30" rows="10"
                         v-model="observacao"> </textarea>
                 </div>
                 <button class="button" type="submit" @click="cadastro()"><img class="button-img"
@@ -158,7 +158,7 @@ export default {
                 if (error.length === 0) {
                     this.cadastroLoading = false;
                     this.loading = true;
-                   if (typeof this.idEditServico !== typeof undefined) {
+                   if (typeof this.idEditServico !== typeof undefined && this.idEditServico !== null && this.idEditServico !== "" && this.idEditServico !== " ") {
                        const response = await axios.put(`/registro/edit/servicoUnidade/${this.idEditServico}`, servicoUnidade)
                         if (response.data._id) {
                             this.$store.commit('setEditServicoUnid', {})

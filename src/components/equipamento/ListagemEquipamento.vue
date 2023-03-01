@@ -1,5 +1,5 @@
 <template>
-            <h1 class="text-center ">
+            <h1 class="text-center-nti">
                 Tombo: {{equipamentos.tombo}}
             </h1>
             <div>
@@ -34,11 +34,11 @@
                                                 </td>
                                                 <td>
                                                     <div class="box">
-                                                        <button class="button-azul" @click="deleteBanco(servico._id)"><img class="button-img"
+                                                        <button class="button-azul" @click="deleteBanco(servico._id)"><img class="button-img1"
                                                             src="../../assets/img/delete.png"></button>
-                                                        <button class="button-verde"><img class="button-img"
+                                                        <button class="button-verde"><img class="button-img1"
                                                                     src="../../assets/img/escrever.svg" @click="editServico(servico)"></button>
-                                                        <button class="button-azul" @click="imprimir(servico)"><img class="button-img"
+                                                        <button class="button-azul" @click="imprimir(servico)"><img class="button-img1"
                                                             src="../../assets/img/impressora.svg"></button>
                                                     </div>
                                                 </td>
@@ -139,4 +139,5 @@ export default{
 </script>
 <style scoped>
 @import '~@/assets/css/styleListagem.css';
+@import '~@/assets/css/styleLogado.css';
 </style>

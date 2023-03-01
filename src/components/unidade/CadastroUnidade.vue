@@ -102,7 +102,7 @@ export default {
                 if (error.length === 0) {
                     this.cadastroLoading = false;
                     this.loading = true;
-                    if (typeof this.idEdit !== typeof undefined) {
+                    if (typeof this.idEdit !== typeof undefined && this.idEdit !== null && this.idEdit !== "" && this.idEdit !== " ") {
                         console.log('tipo edite ')
                         const response = await axios.put(`/registrounidade/edit/${this.idEdit}`, unidadeResponse)
                         if (response.data._id) {

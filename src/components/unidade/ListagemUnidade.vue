@@ -1,13 +1,13 @@
 <template>
-    <h1 class="text-center ">
+    <h1 class="text-center-nti">
         {{ unidade.unidade }}
     </h1>
     <div>
-        <form class="form-busca">
+        <div class="form-busca">
             <input type="text" name="busca" id="busca" placeholder="busca pelo tombo">
             <button class="button-busca" type="submit"><img class="img-button"
                     src="../../assets/img/pesquisa.svg"></button>
-        </form>
+            </div>
     </div>
     <div class="traco-busca"></div>
     <div class="ajust" v-if="loading">
@@ -140,5 +140,6 @@ export default {
 }
 </script>
 <style scoped>
-@import '~@/assets/css/styleListagem.css'
+@import '~@/assets/css/styleListagem.css';
+@import '~@/assets/css/styleLogado.css';
 </style>
