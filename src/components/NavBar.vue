@@ -17,10 +17,12 @@ export default {
         hora: 0,
         min: 30,
         segun: 0,
-        hor: "00",
-        minuto: "30",
-        segundo: "00",
-        set: 0
+        hor: "",
+        minuto: "",
+        segundo: "",
+        set: 0,
+        cromometro: { horaL: '', minL: '', segunL: '' },
+        cromomentoObj: { horaL: "", minL: '', segunL: '' }
     }),
     methods: {
         async cromonometro() {
@@ -46,25 +48,39 @@ export default {
         ,
         async logout() {
             await axios.get('/logout')
+            this.cromometro.horaL = 0;
+            this.cromometro.minL = 0;
+            this.cromometro.segunL = 0;
+            localStorage.setItem('cromometro', JSON.stringify(this.cromometro));
             clearInterval(this.set)
             this.$router.push('/');
+        },
+        checaLocalStore() {
+            let cromomentoString = localStorage.getItem('cromometro');
+            let cromomentoObjF = JSON.parse(cromomentoString);
+            this.cromomentoObj = cromomentoObjF;
+            console.log('antes', this.cromomentoObj)
         }
-    },/*beforeCreate(){
-        let cromomentoString = localStorage.getItem('cromometro');
-        let cromomentoObj = JSON.parse(cromomentoString);
-        console.log(cromomentoObj.minL)
-        if(cromomentoObj.minL > 0 && cromomentoObj.segunL > 0){
-            this.min = cromomentoObj.minL;
-            this.segun = cromomentoObj.segunL;
-        }
-    },*/
+    },
     created() {
+        this.checaLocalStore();
+        console.log("created", this.cromomentoObj)
+        if (this.cromomentoObj.minL > 0 && this.cromomentoObj.segunL > 0) {
+            console.log("created", this.cromomentoObj.minL)
+            this.min = this.cromomentoObj.minL;
+            this.segun = this.cromomentoObj.segunL;
+        } else {
+            this.min = 30;
+            this.segun = 0;
+        }
         this.cromonometro()
     },
-   /* beforeUpdate(){
-        let cromometro = { horaL : this.hora, minL: this.min, segunL: this.segun }
-        localStorage.setItem('cromometro', JSON.stringify(cromometro));
-    }*/
+    beforeUpdate() {
+        this.cromometro.horaL = this.hora;
+        this.cromometro.minL = this.min;
+        this.cromometro.segunL = this.segun;
+        localStorage.setItem('cromometro', JSON.stringify(this.cromometro));
+    }
 }
 </script>
 <style scoped>
