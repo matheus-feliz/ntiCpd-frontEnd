@@ -16,7 +16,6 @@
             <div>
                 <table class="tabela">
                     <tbody>
-
                         <tr v-for="equipamento in page " :key="equipamento._id">
                             <td>
                                 <p>
@@ -39,8 +38,8 @@
                                             class="button-img1" src="../../assets/img/delete.png"></button>
                                     <button class="button-verde" @click="editEquipamento(equipamento)"><img
                                             class="button-img1" src="../../assets/img/escrever.svg"></button>
-                                    <button class="button-azul" @click="Equipamento(equipamento)"><img
-                                            class="button-img1" src="../../assets/img/registro.svg"></button>
+                                    <button class="button-azul" @click="Equipamento(equipamento)"><img class="button-img1"
+                                            src="../../assets/img/registro.svg"></button>
                                     <button class="button-verde"
                                         @click="$router.push({ name: 'listagemdeequipamento', params: { id: equipamento._id } })"><img
                                             class="button-img1" src="../../assets/img/lista-de-tarefas.svg"></button>
@@ -77,7 +76,7 @@ export default {
         anteriorDisponivel: false,
         busca: '',
         buscaLoading: false,
-        loading: true
+        loading: true,
 
     }), components: {
         loadingBuscaVue
@@ -116,7 +115,17 @@ export default {
         },
         busca(novo) {
             this.limpaPage();
-            this.page = this.pages.filter(e => e.tombo.match(novo.toUpperCase()))
+            this.page = this.pages.filter(e => e.tombo.match(novo.toUpperCase()));
+            if (this.page.length === 0) {
+                //this.exibir = false;
+                this.limpaPage();
+                 window.alert("não encontrado");
+                
+            }
+            if (novo.length === 0) {
+                this.limpaPage();
+                this.pagev();
+            }
         }
     }
 }

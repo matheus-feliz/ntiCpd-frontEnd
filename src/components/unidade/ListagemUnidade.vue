@@ -107,8 +107,12 @@ export default {
             }
         },
         async deleteBanco(id) {
-            await axios.delete(`/listagemunidade/delete/${id}`);
-            location.reload();
+            for(let i =0;i<this.pages.length;i++){
+                if(this.pages[i]._id === id){
+                    await axios.delete(`/listagemunidade/delete/${id}`);
+                    this.pages.splice(i,1);
+                }
+            }
         },
         cadastroServico() {
             this.$store.commit('setServicoUnidade', this.unidade)

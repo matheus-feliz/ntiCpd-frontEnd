@@ -96,9 +96,13 @@ export default{
             }
         },
       
-        async deleteBanco(id){
-           await axios.delete(`/listagemcomputador/delete/${id}`);
-           await this.dataRetorno();
+        async deleteBanco(id){        
+           for(let i =0;i<this.servicos.length;i++){
+                if(this.servicos[i]._id === id){
+                   await axios.delete(`/listagemcomputador/delete/${id}`);
+                    this.servicos.splice(i,1);
+                }
+            }
         },
         cadastroServico(){
             this.$store.commit('setServicoEquipamento',this.equipamentos)

@@ -31,6 +31,7 @@ export default {
             const response = await axios.post('/relatorioBanco', this.date);
             this.dados = response.data;
             if(this.dados.total.length >0){
+                
                 //this.exibir=true;
                 this.gerarGrafico();
             }

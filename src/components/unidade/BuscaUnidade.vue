@@ -102,7 +102,13 @@ export default {
         },
         async deleteBanco(id) {
             await axios.delete(`/cadastrounidade/delete/${id}`);
-            location.reload();
+            for(let i =0;i<this.page;i++){
+                if(this.page.id === id){
+                    this.page.splice(i,1);
+
+                }
+            }
+            //location.reload();
         },
         editUnidade(unidade) {
             this.$store.commit('setServicoUnidade', unidade)
@@ -125,7 +131,15 @@ export default {
             this.pagev();
         }, busca(novo) {
             this.limpaPage();
-            this.page = this.pages.filter(u => u.unidade.match(novo.toUpperCase()))
+            this.page = this.pages.filter(u => u.unidade.match(novo.toUpperCase()));
+            if(this.page.length === 0){
+                this.limpaPage();
+                 window.alert("não encontrado");
+            }
+            if(novo.length === 0){
+                this.limpaPage();
+                this.pagev();
+            }
 
         }
 
