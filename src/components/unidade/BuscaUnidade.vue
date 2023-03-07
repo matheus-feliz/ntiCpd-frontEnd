@@ -16,8 +16,9 @@
         <div class="resultado">
             <div>
                 <table class="tabela">
-                    <tbody v-for="unidade in page" :key="unidade._id">
-                        <tr>
+                    <tbody>
+                        <tr v-if="exibir"><td><span>{{ naoEncontrado }}</span></td></tr>
+                        <tr v-for="unidade in page" :key="unidade._id">
                             <td>
                                 <p>
                                     {{ unidade.telefone }}
@@ -77,7 +78,9 @@ export default {
         anteriorDisponivel: false,
         busca: '',
         buscaLoading: false,
-        loading: true
+        loading: true,
+         exibir: false,
+        naoEncontrado:""
 
     }),
     mixins: [listagem],
@@ -105,10 +108,8 @@ export default {
             for(let i =0;i<this.page;i++){
                 if(this.page.id === id){
                     this.page.splice(i,1);
-
                 }
             }
-            //location.reload();
         },
         editUnidade(unidade) {
             this.$store.commit('setServicoUnidade', unidade)
@@ -133,8 +134,10 @@ export default {
             this.limpaPage();
             this.page = this.pages.filter(u => u.unidade.match(novo.toUpperCase()));
             if(this.page.length === 0){
-                this.limpaPage();
-                 window.alert("não encontrado");
+                this.naoEncontrado=`não encontrado ${novo}`;
+                this.exibir = true;
+            }else{
+                this.exibir = false;
             }
             if(novo.length === 0){
                 this.limpaPage();

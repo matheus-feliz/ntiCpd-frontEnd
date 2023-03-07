@@ -16,6 +16,7 @@
             <div>
                 <table class="tabela">
                     <tbody>
+                        <tr v-if="exibir"><td><span>{{ naoEncontrado }}</span></td></tr>
                         <tr v-for="equipamento in page " :key="equipamento._id">
                             <td>
                                 <p>
@@ -77,6 +78,8 @@ export default {
         busca: '',
         buscaLoading: false,
         loading: true,
+        exibir: false,
+        naoEncontrado:""
 
     }), components: {
         loadingBuscaVue
@@ -117,11 +120,12 @@ export default {
             this.limpaPage();
             this.page = this.pages.filter(e => e.tombo.match(novo.toUpperCase()));
             if (this.page.length === 0) {
-                //this.exibir = false;
-                this.limpaPage();
-                 window.alert("não encontrado");
-                
+                this.naoEncontrado=`não encontrado ${novo}`;
+                this.exibir = true;
+            }else{
+                this.exibir = false;
             }
+            
             if (novo.length === 0) {
                 this.limpaPage();
                 this.pagev();
