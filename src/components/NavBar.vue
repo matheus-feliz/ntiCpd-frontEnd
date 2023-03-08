@@ -59,12 +59,13 @@ export default {
             let cromomentoString = localStorage.getItem('cromometro');
             let cromomentoObjF = JSON.parse(cromomentoString);
             this.cromomentoObj = cromomentoObjF;
-            console.log('antes', this.cromomentoObj)
         }
+    }, beforeCreate() {
+        let cromometro={horaL:0,minL:0,segunL:0};
+        localStorage.setItem('cromometro', JSON.stringify(cromometro));
     },
     created() {
         this.checaLocalStore();
-        console.log("created", this.cromomentoObj)
         if (this.cromomentoObj.minL > 0 && this.cromomentoObj.segunL > 0) {
             console.log("created", this.cromomentoObj.minL)
             this.min = this.cromomentoObj.minL;
