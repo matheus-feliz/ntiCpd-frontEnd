@@ -2,7 +2,8 @@
 
 ## Sobre o projeto 
 
-Projeto  desenvolvido para ser o frontend de uma aplicação elaborada para o setor de manutenção de informática da secretária de saúde de Vitória da conquista, sua função é facilitar  a gestão de protocolo de entrada e saida de computadores e outros aparelhos eletrônicos relacionados a informática 
+Projeto  desenvolvido para ser o frontend de uma aplicação elaborada para o setor de manutenção de informática da secretária de saúde de Vitória da conquista, sua função é facilitar  a gestão de protocolo de entrada e saida de computadores e outros aparelhos eletrônicos relacionados a informática.
+tecnologia usadas: Vue.js, node.js, HTML,css e javascript 
 
 ## Project setup
 ```
